@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
     <title>Calculatrice</title>
 </head>
-<body> 
+<body>
+    <!-- zone de selection de la zone de calculatrice -->
+    <div class="mode">
+        <div class="btn-standard">Standard</div>
+        <div class="btn-Scientifique">Scientifique</div>
+        <div class="btn-Devise">Devise</div>
+    </div>
     <section>
         <!-- Zone qui affiche la valeur saisie ou le résultat du calcul. -->
-        <input type="text" placeholder="0" aria-label="Écran de la calculatrice" readonly>
+        <input type="text" inputmode="decimal" placeholder="0" aria-label="Écran de la calculatrice" readonly>
         <!-- Fond visuel qui contient toutes les touches de la calculatrice. -->
         <div class="cal-bg">
             <!-- Grille utilisée pour organiser les touches sur quatre colonnes. -->
             <div class="zone-btn">
                 <!-- Touches spéciales et opérateurs mathématiques. -->
                 <div class="btn btn-clear">C</div>
-                <div class="btn btn-percent">%</div>
+                <div class="btn btn-delete">DEL</div>
                 <div class="btn btn-percent">%</div>
                 <div class="btn btn-operator">/</div>
                 <!-- Chiffres de la troisième ligne du pavé numérique. -->
