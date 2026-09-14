@@ -6,41 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="script.js"></script>
-    <title>Calculatice</title>
+    <title>Calculatrice</title>
 </head>
 <body> 
     <section>
         <!-- Zone qui affiche la valeur saisie ou le résultat du calcul. -->
-        <input type="text" placeholder="0">
+        <input type="text" placeholder="0" aria-label="Écran de la calculatrice" readonly>
         <!-- Fond visuel qui contient toutes les touches de la calculatrice. -->
         <div class="cal-bg">
             <!-- Grille utilisée pour organiser les touches sur quatre colonnes. -->
             <div class="zone-btn">
                 <!-- Touches spéciales et opérateurs mathématiques. -->
-                <div class="btn">√</div>
-                <div class="btn">C</div>
-                <div class="btn">%</div>
-                <div class="btn">x²</div>
+                <div class="btn btn-clear">C</div>
+                <div class="btn btn-percent">%</div>
+                <div class="btn btn-percent">%</div>
+                <div class="btn btn-operator">/</div>
                 <!-- Chiffres de la troisième ligne du pavé numérique. -->
                 <div class="btn">7</div>
                 <div class="btn">8</div>
                 <div class="btn">9</div>
-                <div class="btn">x</div>
+                <div class="btn btn-operator">x</div>
                 <!-- Chiffres de la deuxième ligne et opérateur de soustraction. -->
                 <div class="btn">4</div>
                 <div class="btn">5</div>
                 <div class="btn">6</div>
-                <div class="btn">-</div>
+                <div class="btn btn-operator">-</div>
                 <!-- Chiffres de la première ligne et opérateur d'addition. -->
                 <div class="btn">1</div>
                 <div class="btn">2</div>
                 <div class="btn">3</div>
-                <div class="btn">+</div>
+                <div class="btn btn-operator">+</div>
                 <!-- Dernière ligne : zéro, virgule décimale, division et résultat. -->
-                <div class="btn">0</div>
+                <div class="btn btn-zero">0</div>
                 <div class="btn">.</div>
-                <div class="btn">/</div>       
-                <div class="btn">=</div>
+                <div class="btn btn-equals">=</div>
             </div>
         </div>
     </section>

@@ -1,134 +1,129 @@
-/* Applique le modèle de boîte border-box à tous les éléments. */
-/* La largeur et la hauteur incluent ainsi les bordures et les marges internes. */
+/* Base commune de la page. */
 * {
     box-sizing: border-box;
 }
 
-/* Centre la calculatrice dans la fenêtre du navigateur. */
+/* Centre la calculatrice dans la fenêtre. */
 body {
-    /* Occupe au minimum toute la hauteur visible de l'écran. */
     min-height: 100vh;
-    /* Active le positionnement flexible. */
     display: flex;
-    /* Centre le contenu verticalement. */
     align-items: center;
-    /* Centre le contenu horizontalement. */
     justify-content: center;
-    /* Supprime la marge automatique du navigateur. */
     margin: 0;
-    /* Ajoute un espace entre la calculatrice et les bords de l'écran. */
     padding: 24px;
-    /* Définit la police utilisée par la page. */
     font-family: Arial, sans-serif;
-    /* Définit la couleur de fond générale de la page. */
-    background: #dfe7ef;
+    background: #f7f7f5;
 }
 
-/* Définit la largeur de la section contenant la calculatrice. */
-header,
+/* Conteneur principal de la calculatrice. */
 body > section {
-    /* Utilise au moins 360 pixels, ou toute la largeur disponible. */
-    width: max(100%, 360px);
+    width: min(100%, 380px);
+    padding: 24px 20px 22px;
+    background: #29313b;
+    border-radius: 13px;
+    box-shadow: 0 13px 24px rgba(38, 45, 54, 0.25);
 }
 
-/* Style prévu pour une section placée après un éventuel en-tête. */
-header + section {
-    /* Ajoute un espace intérieur, surtout sous la calculatrice. */
-    padding: 0 24px 24px;
-    /* Donne un fond sombre et arrondit les coins inférieurs. */
-    background: #17212b;
-    border-radius: 0 0 18px 18px;
-}
-
-/* Style de l'écran dans lequel la valeur ou le résultat est affiché. */
+/* Écran qui affiche la valeur saisie ou le résultat. */
 input {
-    /* Étire l'écran sur toute la largeur de son conteneur. */
     width: 100%;
-    /* Fixe une hauteur confortable pour la lecture. */
-    height: 56px;
-    /* Ajoute un espace entre le texte et les bords de l'écran. */
+    height: 90px;
     padding: 0 12px;
-    /* Agrandit la taille des caractères affichés. */
-    font-size: 1.15rem;
-    /* Met la valeur affichée en évidence. */
-    font-weight: 700;
-    /* Définit la couleur du texte. */
-    color: #fefefe;
-    /* Définit la couleur de fond de l'écran. */
-    background-color: #2f3f4c;
-    /* Ajoute une bordure légèrement contrastée. */
-    border: 1px solid #3d5366;
-    /* Arrondit les coins de l'écran. */
-    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 7px 7px 3px 3px;
+    color: #f6f7f8;
+    background: #29313b;
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+    font-weight: 400;
+    text-align: right;
 }
 
-/* Organise les touches sous forme de grille. */
-.zone-btn {
-    /* Active la mise en page CSS Grid. */
-    display: grid;
-    /* Crée quatre colonnes de même largeur. */
-    grid-template-columns: repeat(4, 1fr);
-    /* Sépare régulièrement les touches entre elles. */
-    gap: 12px;
-    /* Éloigne la première ligne de touches de l'écran. */
-    padding-top: 24px;
+/* Apparence du texte affiché quand l'écran est vide. */
+input::placeholder {
+    color: #f6f7f8;
+    opacity: 1;
 }
 
-/* Définit le fond et l'espace intérieur du pavé numérique. */
+/* Espace entre l'écran et le pavé de touches. */
 .cal-bg {
-    background-color: #17212b;
-    padding: 50px;
+    padding: 12px 0 0;
 }
 
-/* Style commun à toutes les touches de la calculatrice. */
-.btn {
-    /* Centre le contenu de chaque touche horizontalement et verticalement. */
+/* Organisation des touches en quatre colonnes. */
+.zone-btn {
     display: grid;
-    /* Empêche les touches de devenir trop petites. */
-    min-height: 56px;
-    /* Centre le contenu grâce à la grille. */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* Apparence commune de toutes les touches. */
+.btn {
+    display: grid;
     place-items: center;
-    /* Ajoute un espace intérieur autour du symbole. */
-    padding: 10px;
-    /* Définit une taille lisible pour les chiffres et opérateurs. */
-    font-size: 1.15rem;
-    /* Rend le texte des touches plus visible. */
-    font-weight: 700;
-    /* Indique que la touche peut être cliquée. */
+    min-height: 58px;
+    padding: 10px 4px;
+    border: 0;
+    border-radius: 8px;
+    color: #20252b;
+    background: #eef0f3;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.08);
     cursor: pointer;
-    /* Définit la couleur de fond normale des touches. */
-    background-color: #E4E5EA;
-    /* Définit la couleur des symboles. */
-    color: #101315;
-    /* Ajoute une bordure autour de chaque touche. */
-    border: 1px solid #3d5366;
-    /* Arrondit les coins des touches. */
-    border-radius: 10px;
-    /* Anime progressivement la couleur et le déplacement au survol. */
-    transition: background-color 160ms ease, transform 160ms ease;
-} 
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: transform 120ms ease, filter 120ms ease;
+    user-select: none;
+}
 
-/* Change l'apparence d'une touche lorsque la souris la survole. */
+/* Effets visuels au survol et pendant le clic. */
 .btn:hover {
-    background-color: #3b5264;
-    /* Soulève légèrement la touche pour montrer qu'elle est active. */
-    transform: translateY(-2px);
+    filter: brightness(1.08);
+    transform: translateY(-1px);
 }
 
-/* Replace la touche à sa position initiale pendant le clic. */
 .btn:active {
-    transform: translateY(0);
+    transform: translateY(1px);
 }
 
-/* Personnalise la dernière touche, qui correspond au bouton égal. */
-.btn:last-child {
-    /* Lui réserve une colonne dans la grille. */
-    grid-column: span 1;
-    /* Utilise une couleur orange pour attirer l'attention sur le résultat. */
-    background-color: #e67e22;
+/* Couleurs des touches spéciales et des opérateurs. */
+.btn-clear {
+    color: #422d22;
+    background: #ffb36f;
 }
 
-/* Éclaircit le bouton égal lorsqu'il est survolé. */
-.btn:last-child:hover {
-    background-color: #f08f38;
+.btn-percent {
+    color: #3b3d25;
+    background: #f5e58b;
+}
+
+.btn-operator {
+    color: #fff;
+    background: #f47d2c;
+}
+
+.zone-btn > .btn:nth-child(4),
+.zone-btn > .btn:nth-child(20) {
+    background: #ad8ee4;
+}
+
+/* Touche de résultat. */
+.btn-equals {
+    color: #fff;
+    background: #f47d2c;
+}
+
+/* Le zéro occupe deux colonnes. */
+.btn-zero {
+    grid-column: span 2;
+}
+
+/* Réduit les dimensions sur les petits écrans. */
+@media (max-width: 360px) {
+    body {
+        padding: 14px;
+    }
+
+    body > section {
+        padding: 16px 12px 14px;
+    }
 }
