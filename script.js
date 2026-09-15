@@ -1,6 +1,9 @@
 // Récupère l'écran et toutes les touches de la calculatrice.
 const display = document.querySelector('input');
 const buttons = document.querySelectorAll('.btn');
+const scientificButtons = document.querySelectorAll(
+	'.bt-square-root, .bt-power, .bt-power2, .bt-exponation'
+);
 
 // Stocke l'expression saisie avant son calcul.
 let expression = '';
@@ -13,7 +16,13 @@ function updateDisplay(value = expression) {
 // Transforme l'expression saisie et calcule son résultat.
 function calculate() {
 	// Adapte les symboles de l'interface à la syntaxe JavaScript.
-	const normalizedExpression = expression.replace(/x/g, '*').replace(/%/g, '/100');
+	const normalizedExpression = expression
+		.replace(/x²/g, '**2')
+		.replace(/x³/g, '**3')
+		.replace(/√\(([^()]*)\)/g, 'Math.sqrt($1)')
+		.replace(/x/g, '*')
+		.replace(/\^/g, '**')
+		.replace(/%/g, '/100');
 
 	if (!normalizedExpression) {
 		return;
@@ -50,6 +59,22 @@ function handleInput(value) {
 		return;
 	}
 
+	if (value === '√') {
+		if (expression) {
+			expression = `√(${expression})`;
+			updateDisplay();
+		}
+		return;
+	}
+
+	if (value === 'x²' || value === 'x³') {
+		if (expression) {
+			expression = `(${expression})${value}`;
+			updateDisplay();
+		}
+		return;
+	}
+
 	if (value === '%') {
 		expression += '%';
 	} else if ('+-x/'.includes(value)) {
@@ -68,6 +93,7 @@ buttons.forEach((button) => {
 		handleInput(button.textContent.trim());
 	});
 });
+
 
 // Permet d'utiliser les chiffres, les opérateurs et les commandes au clavier.
 document.addEventListener('keydown', (event) => {

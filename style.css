@@ -66,7 +66,7 @@ input::placeholder {
     top: 24px;
     left: 24px;
     gap: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 .btn-standard, .btn-Devise, .btn-Scientifique {
     display: grid;
@@ -139,9 +139,13 @@ input::placeholder {
     color: #422d22;
     background: #ad8ee4;
 }
-.zone-btn > .btn:nth-child(4),
-.zone-btn > .btn:nth-child(20) {
-    background: #ad8ee4;
+.zone-btn > .btn:nth-child(8) {
+    background: #f47d2c;
+}
+
+.zone-btn > .btn:nth-child(1),
+.zone-btn > .btn:nth-child(4) {
+    background: #8ee1ff;
 }
 
 /* Touche de résultat. */
