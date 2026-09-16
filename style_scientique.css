@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Fond global de la page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #151521, #1e1e2f);
+}
+/* Conteneur principal : mode + calculatrice */
+.app-shell {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    padding-top: 30px;
+}
+/* Menu latéral des modes */
+.mode {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #1d1d2e;
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 170px;
+    margin-top: 18px;
+}
+/* Boutons des modes */
+.mode-btn {
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #a9a9c0;
+    padding: 12px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.mode-btn.active {
+    background: #4f4f6d;
+    color: #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.mode-btn:hover {
+    background: #35354d;
+    color: #ffffff;
+}
+/* Zone de la calculatrice */
+.calculator-shell {
+    display: flex;
+    justify-content: center;
+}
+.calculator {
+    background: #2d2d44;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    padding: 18px;
+    width: 500px;
+}
+/* Écran d'affichage */
+.display {
+    background: #1a1b2d;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: right;
+    margin-bottom: 16px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.previous-op {
+    color: #9090a5;
+    font-size: 14px;
+    min-height: 20px;
+}
+.current-op {
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 700;
+    min-height: 42px;
+}
+/* Bloc des fonctions scientifiques, caché par défaut */
+.scientific {
+    display: none;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.scientific.visible {
+    display: grid;
+}
+/* Clavier principal */
+.cal-bg {
+    display: block;
+}
+.zone-btn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+/* Style général des boutons */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    border: none;
+    border-radius: 10px;
+    background: #3b3b54;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.btn:hover {
+    background: #4a4a68;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+/* Boutons scientifiques */
+.sc-btn {
+    background: #323248;
+    color: #5db8ff;
+    font-size: 15px;
+    min-height: 42px;
+}
+.sc-btn:hover {
+    background: #3f3f5d;
+}
+/* Boutons opéraeurs */
+.btn-operator,
+.operator {
+    background: #4e4e6a;
+    color: #62d9ff;
+}
+.btn-operator:hover,
+.operator:hover {
+    background: #5f5f7c;
+}
+/* Boutons de suppression */
+.btn-clear,
+.danger {
+    background: #ff4d4d;
+}
+.btn-clear:hover,
+.danger:hover {
+    background: #ff6666;
+}
+.btn-delete,
+.warning {
+    background: #ff9d1b;
+}
+.btn-delete:hover,
+.warning:hover {
+    background: #ffb349;
+}
+/* Bouton égal */
+.btn-equals,
+.equals {
+    background: #00c853;
+}
+.btn-equals:hover,
+.equals:hover {
+    background: #1cdf68;
+}
+.btn-zero {
+    grid-column: span 1;
+}
+/* Boutons fonctions scientifiques avancées */
+.bt-square-root,
+.bt-power,
+.bt-power2,
+.bt-exponation {
+    background: #38385a;
+    color: #87d8ff;
+}
+/* Responsive */
+@media (max-width: 760px) {
+    .app-shell {
+        flex-direction: column;
+    }
+    .mode {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .calculator {
+        width: min(92vw, 500px);
+    }
+}

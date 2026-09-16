@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_scientique.css">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <div class="app-shell">
+        <div class="mode" aria-label="Modes de calculatrice">
+            <button class="mode-btn active" type="button" data-mode="standard">Standard</button>
+            <button class="mode-btn" type="button" data-mode="scientifique">Scientifique</button>
+            <button class="mode-btn" type="button" data-mode="devise">Devise</button>
+        </div>
+
+        <section class="calculator-shell">
+            <div class="calculator" data-mode="standard">
+                <div class="display">
+                    <div id="previous-op" class="previous-op"></div>
+                    <div id="current-op" class="current-op">0</div>
+                </div>
+
+                <div class="buttons scientific" aria-label="Fonctions scientifiques">
+                    <button class="btn sc-btn" type="button">sin</button>
+                    <button class="btn sc-btn" type="button">cos</button>
+                    <button class="btn sc-btn" type="button">tan</button>
+                    <button class="btn sc-btn" type="button">log</button>
+                    <button class="btn sc-btn" type="button">ln</button>
+                    <button class="btn sc-btn" type="button">π</button>
+                    <button class="btn sc-btn" type="button">e</button>
+                    <button class="btn sc-btn" type="button">|x|</button>
+                    <button class="btn sc-btn" type="button">(</button>
+                    <button class="btn sc-btn" type="button">)</button>
+                </div>
+
+                <div class="cal-bg">
+                    <div class="zone-btn">
+                        <div class="btn bt-square-root">√</div>
+                        <div class="btn bt-power">x²</div>
+                        <div class="btn bt-power2">x³</div>
+                        <div class="btn bt-exponation">^</div>
+                        <div class="btn btn-clear">C</div>
+                        <div class="btn btn-delete">DEL</div>
+                        <div class="btn btn-percent">%</div>
+                        <div class="btn btn-operator">/</div>
+                        <div class="btn">7</div>
+                        <div class="btn">8</div>
+                        <div class="btn">9</div>
+                        <div class="btn btn-operator">x</div>
+                        <div class="btn">4</div>
+                        <div class="btn">5</div>
+                        <div class="btn">6</div>
+                        <div class="btn btn-operator">-</div>
+                        <div class="btn">1</div>
+                        <div class="btn">2</div>
+                        <div class="btn">3</div>
+                        <div class="btn btn-operator">+</div>
+                        <div class="btn btn-zero">0</div>
+                        <div class="btn">.</div>
+                        <div class="btn btn-equals">=</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
