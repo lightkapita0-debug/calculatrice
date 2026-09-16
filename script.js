@@ -49,7 +49,7 @@ function handleInput(value) {
 	}
 
 	if (value === 'DEL') {
-		expression = expression.slice(0, -1);
+		expression = expression.slice(0, -1); 
 		updateDisplay();
 		return;
 	}

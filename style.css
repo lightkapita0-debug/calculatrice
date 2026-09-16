@@ -62,7 +62,7 @@ input::placeholder {
     background: #29313b;
     border-radius: 8px;
     position: absolute;
-    padding: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px; 
     top: 24px;
     left: 24px;
     gap: 12px;
